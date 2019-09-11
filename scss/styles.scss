@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: gold;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -19,6 +19,10 @@ h2, h3, h4 {
   font-weight: 200;
   margin-top: 0;
   letter-spacing: 1px;
+  @media (max-width: 1000px){
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
   span {
     font-weight: 900;
   }
@@ -28,9 +32,16 @@ p {
   font-size: 15.57px;
   line-height: 28px;
   margin: 0;
+  @media (max-width: 1000px) {
+    font-size: 13px;
+    line-height: 22px;
+  }
 }
 a, input, textarea {
   font-size: 16.57px;
+  @media (max-width: 1000px) {
+    font-size: 13px;
+  }
 }
 
 a{
@@ -43,6 +54,19 @@ a{
   margin-top: 50px;
   max-width: 210px;
   text-align: center;
+  @media (max-width: 1000px) {
+    margin-top: 25px;
+  }
+  @media (max-width: 700px) {
+    margin: 25px auto 0;
+  }
+}
+
+.span {
+  display: block;
+  @media (max-width: 700px) {
+    display: initial;
+  }
 }
 
 .grid-item-beige a {
@@ -58,6 +82,9 @@ button {
   background-color: transparent;
   border: none;
   margin-bottom: 64px;
+  @media (max-width: 1000px) {
+    margin-bottom: 30px;
+  }
 }
 
 .form {
@@ -94,8 +121,10 @@ button {
   grid-template-areas:"a a a a a a b b b"
                       "c c c c d d d d d"
                       "c c c c e e e e e"
-                      "f f f g g g g g g"
-
+                      "f f f g g g g g g";
+  @media (max-width: 700px) {
+    grid-template-areas:"a" "b" "c" "d" "e" "f" "g"
+  }
 }
 
 .grid-item-bg {
@@ -111,26 +140,67 @@ button {
 .grid-item-blue {
   background-image: url("../img/bg-blue.png");
   grid-area: c;
+  &>div {
+    margin-bottom: 70px;
+    &:last-child {
+      @media (max-width: 1000px) {
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
 
 .grid-item-beige {
   background-image: url("../img/bg-beige.png");
   grid-area: d;
+  @media (max-width: 700px) {
+    text-align: center;
+  }
 }
 
 .grid-item-black {
   background-image: url("../img/bg-black.png");
   grid-area: e;
+  @media (max-width: 700px) {
+    text-align: center;
+  }
 }
 
 .grid-item-human {
   background-image: url("../img/bg-human.png");
   grid-area: f;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  min-height: 715px;
+  @media (max-width: 1000px) {
+    min-height: inherit;
+  }
+  @media (max-width: 700px) {
+    text-align: center;
+    justify-content: center;
+  }
+  &>div {
+    width: 100%;
+  }
 }
 
 .grid-item-green {
   background-image: url("../img/bg-green.png");
   grid-area: g;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  min-height: 715px;
+  @media (max-width: 1000px) {
+    min-height: inherit;
+  }
+  @media (max-width: 700px) {
+    text-align: center;
+  }
+  &>div {
+    width: 100%;
+  }
 }
 
 .grid-item-bg, .grid-item-blue, .grid-item-beige, .grid-item-black, .grid-item-human, .grid-item-green {
@@ -142,45 +212,45 @@ button {
 
 .grid-item-gray, .grid-item-blue, .grid-item-beige, .grid-item-black, .grid-item-human, .grid-item-green {
   padding: 60px 55px 70px 55px;
+  @media (max-width: 1000px) {
+    padding: 40px 30px;
+  }
 }
 
 .grid-item-blue, .grid-item-black, .grid-item-human, .grid-item-green {
   color: #fff;
 }
 
-.grid-item-blue>div {
-  margin-bottom: 70px;
-}
+
 
 .list {
   list-style-type: none;
   padding: 0;
   display: flex;
   justify-content: flex-start;
-}
-
-.list>li {
-  margin-right: 10px;
-}
-
-.list>li>a {
-  background-repeat: no-repeat;
-  width: 45px;
-  height: 45px;
-  display: block;
-  border: none;
-}
-
-.list>li>a.list-fb {
-  background-image: url("../img/fb.png");
-}
-
-.list>li>a.list-dr {
-  background-image: url("../img/dr.png");
-}
-
-.list>li>a.list-tw {
-  background-image: url("../img/tw.png");
+  @media (max-width: 700px) {
+    justify-content: center;
+  }
+  &>li {
+    margin-right: 10px;
+    &>a {
+      background-repeat: no-repeat;
+      width: 45px;
+      height: 45px;
+      display: block;
+      border: none;
+      margin-top: 0;
+    }
+    &>a.list-fb {
+      background-image: url("../img/fb.png");
+    }
+    &>a.list-dr {
+      background-image: url("../img/dr.png");
+    }
+    &>a.list-tw {
+      background-image: url("../img/tw.png");
+    }
+  }
 }
 
 .logo {
@@ -190,4 +260,12 @@ button {
   height: 90px;
   background-image: url("../img/logo.png");
   background-repeat: no-repeat;
+  @media (max-width: 1000px) {
+    width: 70px;
+    height: 70px;
+    background-size: cover;
+  }
+  @media (max-width: 700px) {
+    margin: 0 auto 25px;
+  }
 }
